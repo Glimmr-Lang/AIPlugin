@@ -1,43 +1,45 @@
 
 // Syntax showcase
 
-import pkg:io
-
-// TODO: import pkg:io { println }
+import std.io { IO }
 
 // Variable declaration
-let n = 5 * 2
-let song = "Feel good Inc"
+n := 5 * 2
+song := "Feel good Inc"
 
 // The language supports the normal set of operators as in c.
 
 // Arrays
-let numbers = [1,2,3]
-let first = numbers.0
-let joined = first:numbers
+numbers := [1,2,3]
+first := numbers[0]
+joined := first:numbers
+
+IO::println(first)
 
 // Tuples
-let numbers = (1,2,3)
-let first = numbers.0
+numbers := (1,2,3)
+first := numbers[0]
+IO::println(first)
+
 
 
 // If-Else
-if 1 > 1 { numbers } else { joined }
+if 1 > 1 do { numbers } else do { joined }
 
 // When
 when numbers {
   is (a, b, c) -> a + " " + b + " " + c
-  else -> "Not a match""
+  else -> "Not a match"
 }
 
 // Functions
-function add(x=1, y=1) = x + y
+add :: (x=1, y=1) = x + y
 
-let result = add(y=2)
-IO.println(result)
+result := add(y=2)
+IO::println(result)
 
-let answer = 10 |> add(10) |> add(10)
+answer := 10 |> add(10) |> add(10)
 
-IO.println(answer)
+IO::println(answer)
 
 

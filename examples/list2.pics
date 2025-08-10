@@ -1,0 +1,22 @@
+
+import std.io
+import std.list
+
+numbers := [1,2,3]
+
+mapped := List::map(numbers, |x| -> x * 2) 
+
+IO::println(mapped)
+IO::println(List::join(numbers, "::"))
+
+reduce :: (xs=[], f, acc) =
+  when xs {
+    is [] -> acc
+    is x:rest -> reduce(rest, f, f(acc, x))
+  }
+
+result := reduce(mapped, |acc, x| -> acc + x, 0) 
+
+IO::println(List::contains(mapped, 2))
+IO::println(List::indexOf(mapped, 4))
+

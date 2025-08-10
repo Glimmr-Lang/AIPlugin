@@ -1,0 +1,15 @@
+
+import std.io
+
+filter :: (xs=[], pred) =
+  when xs {
+    is [] -> []
+    is x:rest -> 
+      if pred(x) do { x:filter(rest, pred) }
+      else do { filter(rest, pred) }
+  }
+
+nums := [1,2,3,4]
+
+greater := filter(nums, |num| -> num > 2)
+IO::println(greater)

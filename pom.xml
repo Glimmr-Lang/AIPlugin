@@ -11,6 +11,14 @@
         <exec.mainClass>org.picasso.aiplugin.AIPlugin</exec.mainClass>
     </properties>
 
+			<repositories>
+				<repository>
+					<id>jitpack.io</id>
+					<url>https://jitpack.io</url>
+				</repository>
+			</repositories>
+
+
 		<dependencies>
 			<dependency>
 				<groupId>dev.langchain4j</groupId>
@@ -22,6 +30,12 @@
 				<groupId>dev.langchain4j</groupId>
 				<artifactId>langchain4j-google-ai-gemini</artifactId>
 				<version>1.0.0-beta4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.Glimmr-Lang</groupId>
+				<artifactId>PiccodePlugin</artifactId>
+				<version>main-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 </project>

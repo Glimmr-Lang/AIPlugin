@@ -1,0 +1,10 @@
+
+import std.io
+
+gcd :: (a, 0) = a
+gcd :: (a, b) = gcd(b, a % b)
+
+result := gcd(10, 20)
+
+IO::println(result)
+

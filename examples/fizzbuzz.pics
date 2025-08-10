@@ -1,0 +1,20 @@
+
+import std.io
+import std.list
+import std.proc.loop
+
+range := List::fromRange(1, 50)
+
+Loops::forEach(range, |i| -> do {
+
+  when ((i % 3) == 0, (i % 5) == 0) {
+    is (true, false) -> IO::println("Fizz")
+    is (false, true) -> IO::println("Buzz")
+    is (true, true) -> IO::println("FizzBuzz")
+    else -> IO::println(i)
+  }
+
+})
+
+
+

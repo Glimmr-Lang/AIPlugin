@@ -1,0 +1,37 @@
+
+IO    :: import std.io
+Args  :: import std.args
+List :: import std.list
+Virtual :: import std.virtual
+
+getUser :: (0) = Virtual::task(|_| -> do { 
+  let
+    userId := "Admin:{id}"
+  in do {
+    Virtual::sleep(100 * id)
+    {user: userId, id: id, root: true}
+  }
+})
+
+
+getUser :: (id) = Virtual::task(|_| -> do {
+  let
+    userId := "User:{id}"
+  in do {
+    Virtual::sleep(100 * id)
+    {user: userId, id: id}
+  }
+})
+
+getUsers :: (end=1) = 
+  let
+    startIndex := 0
+  in
+    startIndex
+    |> List::fromRange(end)
+    |> List::map(|item| -> getUser(item).await)
+    |> List::toString
+
+users := getUsers(10)
+users |> IO::println
+

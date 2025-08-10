@@ -1,5 +1,6 @@
 package org.picasso.aiplugin;
 
+import com.piccode.piccodeplugin.PiccodePluginPanel;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.request.ChatRequest;
@@ -31,7 +32,7 @@ import javax.swing.SwingUtilities;
  */
 import javax.swing.*;
 
-public class AIPlugin extends JPanel {
+public class AIPlugin extends PiccodePluginPanel {
 
 	private ChatModel gemini;
 	private final JPanel messagePanel;
@@ -41,6 +42,7 @@ public class AIPlugin extends JPanel {
 	private String systemPrompt = "";
 
 	public AIPlugin() {
+		super();
 		setLayout(new BorderLayout());
 
 		// Top Panel with API key and provider
@@ -172,7 +174,12 @@ public class AIPlugin extends JPanel {
 		return label;
 	}
 
-	public static void main(String[] args) {
+	@Override
+	public void init() {
+		instance = new AIPlugin();
+	}
+	
+	public void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
 			JFrame frame = new JFrame("Chat App");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

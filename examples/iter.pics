@@ -1,0 +1,11 @@
+
+import std.io
+import std.list
+import std.proc.loop
+
+arr := List::fromRange(1, 5)
+
+Loops::forEach(arr, |item| -> do {
+  IO::println(item)
+})
+
